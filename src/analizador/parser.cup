@@ -1,0 +1,35 @@
+package analizador;
+import java_cup.runtime.*;
+
+//PARSER 
+parser code
+{://Codigo visible
+    
+    public void syntax_error(Symbol s){
+        System.out.println("Error R de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+        System.out.println("Error NR de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+:}
+
+terminal String ALLAVE, CLLAVE, DOSPUNTOS, PUNTOCOMA, FLECHA, PUNTO, ASTERISCO, COMA, BARRA, MAS;
+terminal String GUION, INTERROGACION, CONJ, PORCENTAJES, CADENA, NUMERO, LETRA, ID, ACCI, ESPECIAL;
+
+non terminal ini;    
+non terminal lexema;                               // terminales para las transiciones 
+
+start with ini;                                     // iniciar la gramataica 
+
+ini::= ini lexema |
+            lexema;
+
+lexema::= ALLAVE| CLLAVE| DOSPUNTOS| PUNTOCOMA| FLECHA| PUNTO| ASTERISCO| COMA| BARRA| 
+MAS|GUION|  INTERROGACION| CONJ| PORCENTAJES| CADENA| NUMERO| LETRA| ID| ACCI| ESPECIAL;                                // produccion inicial 
+
+
+
+
+

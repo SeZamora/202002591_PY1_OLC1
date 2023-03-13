@@ -37,65 +37,117 @@ public class Union {
             char[] chars = codigoFuente.toCharArray();
             ArrayList<Character> cadaCaracter = new ArrayList<>();
             for (char ch : chars) {
+                System.out.println("->"+ch);
                 cadaCaracter.add(ch);
             }
 
             int j = 0;
             expresiones.get(i).insertarTerminalAlArray(".");
                 while (j<cadaCaracter.size()){
+                    
                 if (estado == 0){
-                    if(cadaCaracter.get(j)==46){
+                    if (cadaCaracter.get(j)==46){
+                        System.out.println("46 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray(".");
                         j++;
                     }else if(cadaCaracter.get(j)==42){
+                        System.out.println("42 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("*");
                         j++;
                     } else if(cadaCaracter.get(j)==124){
+                        System.out.println("124 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("|");
                         j++;
                     }else if(cadaCaracter.get(j)==63){
+                        System.out.println("63 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("?");
                         j++;
                     }else if(cadaCaracter.get(j)==43){
+                        System.out.println("43 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("+");
                         j++;
                     }else if(cadaCaracter.get(j)==172){
+                        System.out.println("172 -> "+j+"->"+cadaCaracter.get(j));
                         System.out.println("se completo el casteo");
                         break;
                     }
                     else if (cadaCaracter.get(j)==123){
+                         System.out.println("123 -> "+j+"->"+cadaCaracter.get(j));
+                         //System.out.println(" "+buffer);
                         buffer += cadaCaracter.get(j);
                         j++;
                         estado = 1;
                     }
                     else if (cadaCaracter.get(j)==34){
+                         System.out.println("34 estado 0 -> "+j+"->"+cadaCaracter.get(j));
+                         //System.out.println(buffer);
                         buffer += cadaCaracter.get(j);
                         j++;
                         estado = 2;
                     }
+                    else if (cadaCaracter.get(j)==92){
+                        System.out.println("34 estado 0 -> "+j+"->"+cadaCaracter.get(j));
+                        j++;
+                        estado = 3;
+                    }
                 }else if (estado==1){
                     if(cadaCaracter.get(j)==125){
+                          System.out.println("125 -> "+j+"->"+cadaCaracter.get(j));
+                         //System.out.println(" "+buffer);
                         buffer += "}";
                         expresiones.get(i).insertarTerminalAlArray(buffer);
                         buffer = "";
                         j++;
                         estado = 0;
                     }else{
+                         System.out.println("primer if else -> "+j+"->"+cadaCaracter.get(j));
+                         //System.out.println(" "+buffer);
                         buffer+= cadaCaracter.get(j);
                         j++;
                     }
                 }else if (estado==2){
                     if(cadaCaracter.get(j)==34){
+                          System.out.println("34 -> "+j+"->"+cadaCaracter.get(j));
+                         //System.out.println(" "+buffer);
                         buffer += "\"";
                         expresiones.get(i).insertarTerminalAlArray(buffer);
                         buffer = "";
                         j++;
                         estado = 0;
                     }else{
+                          System.out.println("estado 2 else -> "+j+"->"+cadaCaracter.get(j));
+                         //System.out.println(" "+buffer);
                         buffer+= cadaCaracter.get(j);
                         j++;
                     }
 
+                }else if (estado==3){
+                    System.out.println("entre 3 ->"+cadaCaracter.get(j));
+                        if(cadaCaracter.get(j)==110){
+                            System.out.println("entre n");
+                         buffer = "\\n";
+                            System.out.println("el buffer: "+buffer);
+                         expresiones.get(i).insertarTerminalAlArray(buffer);
+                         j++;
+                          buffer = "";
+                         estado = 0;
+                     } else if (cadaCaracter.get(j)==39){
+                            System.out.println("entre simple");
+                          buffer = "\\\'";
+                            System.out.println("el buffer: "+buffer);
+                         expresiones.get(i).insertarTerminalAlArray(buffer);
+                         j++;
+                         estado = 0;
+                         buffer = "";
+                     } else if (cadaCaracter.get(j)==34){
+                            System.out.println("entre doble");
+                         buffer = "\\\"";
+                            System.out.println("soy buffer"+buffer);
+                         expresiones.get(i).insertarTerminalAlArray(buffer);
+                         j++;
+                         buffer = "";
+                         estado = 0;
+                     }
                 }
             }
             expresiones.get(i).insertarTerminalAlArray("#");
@@ -118,6 +170,17 @@ public class Union {
 
             raiz.getNode(); // DETERMINA SI LOS NODOS SON ANULABLES, SUS PRIMEROS Y ULTIMOS
             raiz.follow();
+            
+            String graphvizArbol = Arbol.imprimir+"}";
+            EscribirArchivo(graphvizArbol,"./reportes/Arbol_202002591/Arbol"+(i+1)+".dot");
+            ProcessBuilder proceso0;
+            proceso0 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Arbol_202002591/Arbol"+(i+1)+".png","./reportes/Arbol_202002591/Arbol"+(i+1)+".dot");
+            proceso0.redirectErrorStream(true);
+            try {
+                proceso0.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
 
             System.out.println("==============================TABLA SIGUIENTES==============================");

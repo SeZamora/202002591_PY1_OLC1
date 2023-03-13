@@ -905,8 +905,7 @@ class CUP$parser$actions {
 		int combinacionleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int combinacionright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object combinacion = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		 String especial2 = "\""+"\\"+"\"";
-                                                                    RESULT=especial2+combinacion; 
+		;RESULT=especial+combinacion; 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("COMBEXPRE",7, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-1)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -918,8 +917,7 @@ class CUP$parser$actions {
 		int especialleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int especialright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String especial = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		  String especial2 = "\""+"\\"+"\"";
-                                RESULT=especial2;  
+		 RESULT=especial;  
               CUP$parser$result = parser.getSymbolFactory().newSymbol("COMBEXPRE",7, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

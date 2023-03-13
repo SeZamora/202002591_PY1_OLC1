@@ -48,7 +48,7 @@ public class Nodo {
 
     public Nodo getNode(){
 
-
+        
         Object leftNode = this.left instanceof Nodo ? ((Nodo) this.left).getNode() : null;
         Object rightNode = this.right instanceof Nodo ? ((Nodo) this.right).getNode() : null;
 
@@ -131,7 +131,19 @@ public class Nodo {
             default:
                 break;
         }
+        if(this.lexeme.equals("\"" + "\\" + "n" + "\"")){
+            this.lexeme="\\"+"\\"+"n"; }
+        if(this.lexeme.equals("\""+"\\"+"\"")){
+            this.lexeme="''"; }
 
+        String anulable = "";
+        if(this.anullable==true){ anulable="A"; }else{anulable="N";}
+
+
+
+
+        Arbol.imprimir+="Nodo"+ this.hashCode()+ "[label=\""+ this.lexeme.replace("\"","") +" \n "+this.first+" \n "+ this.last +" \n "+ anulable + " \"];\n";
+        
         return this;
     }
 }

@@ -1,0 +1,129 @@
+package analizador;
+import java_cup.runtime.*;
+import estructuras.*;
+import analizador.*;
+import java.util.ArrayList;
+
+parser code
+{:
+
+
+
+// error sintactico
+    public void syntax_error(Symbol s)
+    {
+        String lexema = s.value.toString();
+        int fila = s.right;
+        int columna = s.left;
+
+        System.out.println("recuperado");
+
+
+    }
+
+    //momento en que ya no es posible una recuperacion de errores
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
+    {
+        String lexema = s.value.toString();
+        int fila = s.right;
+        int columna = s.left;
+
+        System.out.println("gege ");
+
+    }
+
+
+
+    
+:}
+
+terminal String llavea, llavec, dospuntos, puntocoma, flecha, punto, asterisco, coma, or, mas, guionondulado, interrogacion, conj, porcentajes, comentariolineas, cadena, comentario, numero, letra, id, acci, caracterEspecial ;
+
+non terminal INICIO,INTRO,CONJUNTOS,COMBINACIONES,COMASLETRA,COMASNUMERO,EXPRESIONES,COMBEXPRE,PORCENTAJES,ENTRADAS ;
+
+start with INICIO;
+
+INICIO::= llavea INTRO llavec {:System.out.println("Fin de analisis de entrada");:}
+;
+
+INTRO::= CONJUNTOS
+| INTRO CONJUNTOS
+| INTRO EXPRESIONES
+| EXPRESIONES
+| INTRO PORCENTAJES
+| PORCENTAJES
+| INTRO ENTRADAS
+| ENTRADAS
+| error
+;
+
+CONJUNTOS::= conj dospuntos id:idd flecha  COMBINACIONES:combinacion puntocoma  {: System.out.println("");System.out.println(idd+" "+combinacion);
+                                                                                   Conjunto conjunto = new Conjunto(idd,(String)combinacion);
+                                                                                                   Union.conjuntos.add(conjunto);
+                                                                                  :}
+;
+
+
+
+COMBINACIONES::= letra:letra1 guionondulado:guion letra:letra2    {: RESULT=letra1+guion+letra2; :}
+| numero:numero1 guionondulado:guion numero:numero2               {: RESULT=numero1+guion+numero2; :}
+| acci:simbolo1 guionondulado:guion acci:simbolo2         {: RESULT=simbolo1+guion+simbolo2; :}
+| llavea:llave1 guionondulado:guion llavec:llave2         {: RESULT=llave1+guion+llave2; :}
+| letra:letracoma1 COMASLETRA:letracoma2                    {: RESULT=letracoma1+letracoma2; :}
+| numero:numerocoma1 COMASLETRA:numerocoma2                {: RESULT=numerocoma1+numerocoma2; :}
+| cadena:cadenaa COMASLETRA:combinacion                                          {: RESULT=cadenaa+combinacion; :}
+| caracterEspecial:especial COMASLETRA:combinacion                               {: RESULT=especial+combinacion; :}
+;
+
+COMASLETRA::= coma:comaa letra:letracoma COMASLETRA:combinacion {: RESULT=comaa+letracoma+combinacion; :}
+| coma:comaa letra:letracoma {: RESULT=comaa+letracoma; :}
+| coma:comaa caracterEspecial:especial COMASLETRA:combinacion {: RESULT=comaa+especial+combinacion; :}
+| coma:comaa caracterEspecial:especial {: RESULT=comaa+especial; :}
+| coma:comaa cadena:cadenaa COMASLETRA:combinacion {: RESULT=comaa+cadenaa+combinacion; :}
+| coma:comaa cadena:cadenaa {: RESULT=comaa+cadenaa; :}
+| coma:comaa numero:numerocoma COMASLETRA:combinacion {: RESULT=comaa+numerocoma+combinacion; :}
+| coma:comaa numero:numerocoma {: RESULT=comaa+numerocoma; :}
+;
+
+
+
+
+EXPRESIONES::= id:idd flecha COMBEXPRE:expresionn puntocoma           {: System.out.println("");System.out.println(idd+expresionn);
+                                                                                       Expresion expresion = new Expresion(idd,(String)expresionn);
+                                                                                                       Union.expresiones.add(expresion);
+                                                                                      :}
+;
+
+COMBEXPRE::= punto:puntoo COMBEXPRE:combinacion {: RESULT=puntoo+combinacion; :}
+| punto:puntoo {: RESULT=puntoo; :}
+| llavea:llaveaa COMBEXPRE:combinacion {: RESULT=llaveaa+combinacion; :}
+| llavea:llaveaa {: RESULT=llaveaa; :}
+| llavec:llavecc COMBEXPRE:combinacion {: RESULT=llavecc+combinacion; :}
+| llavec:llavecc {: RESULT=llavecc; :}
+| id:idd COMBEXPRE:combinacion {: RESULT=idd+combinacion; :}
+| id:idd {: RESULT=idd; :}
+| asterisco:asteriscoo COMBEXPRE:combinacion {: RESULT=asteriscoo+combinacion; :}
+| asterisco:asteriscoo {: RESULT=asteriscoo; :}
+| interrogacion:interrogacionn COMBEXPRE:combinacion {: RESULT=interrogacionn+combinacion; :}
+| interrogacion:interrogacion {: RESULT=interrogacion; :}
+| or:orr COMBEXPRE:combinacion {: RESULT=orr+combinacion; :}
+| or:orr {: RESULT=orr; :}
+| cadena:cadenaa COMBEXPRE:combinacion {: RESULT=cadenaa+combinacion; :}
+| cadena:cadenaa {: RESULT=cadenaa; :}
+| mas:mass COMBEXPRE:combinacion {: RESULT=mass+combinacion; :}
+| mas:mass {: RESULT=mass;  :}
+| caracterEspecial:especial COMBEXPRE:combinacion {:;RESULT=especial+combinacion; :}
+| caracterEspecial:especial {: RESULT=especial;  :}
+;
+
+PORCENTAJES::= porcentajes
+;
+
+ENTRADAS::= id:idd dospuntos cadena:cadenaa puntocoma                  {: System.out.println("");System.out.println(idd+cadenaa);
+                                                                       Expresion expresion2 = new Expresion(idd,cadenaa);
+                                                                                       Union.entradas.add(expresion2);
+                                                                      :}
+;
+
+
+

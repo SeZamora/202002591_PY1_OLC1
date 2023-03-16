@@ -4,6 +4,7 @@
  */
 package estructuras;
 
+import T_Sigueinte.Siguiente;
 import estructuras.*;
 import java.util.ArrayList;
 
@@ -143,7 +144,7 @@ public class Nodo {
 
 
         Arbol.imprimir+="Nodo"+ this.hashCode()+ "[label=\""+ this.lexeme.replace("\"","") +" \n "+this.first+" \n "+ this.last +" \n "+ anulable + " \"];\n";
-        
+       
         return this;
     }
 }

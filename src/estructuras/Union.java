@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package estructuras;
+import T_Sigueinte.Siguiente;
 import analizador.*;
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,6 +25,7 @@ public class Union {
     public static ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
     public static ArrayList<Expresion> expresiones = new ArrayList<Expresion>();
     public static ArrayList<Expresion> entradas = new ArrayList<Expresion>();
+     public static ArrayList<Expresion> errores = new ArrayList<Expresion>();
     
     public static void analizar(){
         for (int i = 0; i < conjuntos.size(); i++) {
@@ -153,7 +155,10 @@ public class Union {
             expresiones.get(i).insertarTerminalAlArray("#");
             System.out.println(expresiones.get(i).getNombre() + " " + expresiones.get(i).getExpresion());
         }
+        }
         
+    public static void arboles(){
+            
         /////-------------------------------------------------
          for (int i = 0; i < expresiones.size(); i++) {
   
@@ -161,15 +166,17 @@ public class Union {
 
             ArrayList<Nodo> leaves = new ArrayList();
             ArrayList<ArrayList> table = new ArrayList();
+            
 
             er = "." + er + "#";
 
 
-            Arbol arbol = new Arbol(expresiones.get(i).getExpresionArray(), leaves, table); // CREA EL ARBOL
-            Nodo raiz = arbol.getRoot();
-
-            raiz.getNode(); // DETERMINA SI LOS NODOS SON ANULABLES, SUS PRIMEROS Y ULTIMOS
-            raiz.follow();
+            Arbol arbol = new Arbol(expresiones.get(i).getExpresionArray(), leaves, table); 
+ 
+            Nodo fondo = arbol.getRoot();
+            
+            fondo.getNode();
+            fondo.follow();
             
             String graphvizArbol = Arbol.imprimir+"}";
             EscribirArchivo(graphvizArbol,"./reportes/Arbol_202002591/Arbol"+(i+1)+".dot");
@@ -181,9 +188,16 @@ public class Union {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+          
+            siguientes(i,leaves, table, fondo);
+            transiciones_AFD(i,leaves, table, fondo);
+         
+         }
+         
+        }
+        
+        public static void siguientes(int i, ArrayList<Nodo> leaves, ArrayList<ArrayList> table, Nodo fondo){
 
-
-            System.out.println("==============================TABLA SIGUIENTES==============================");
             Siguiente ft = new Siguiente();
             String graphviz = ft.graphviz(table);
             EscribirArchivo(graphviz,"./reportes/Siguientes_202002591/Tabla"+(i+1)+".dot");
@@ -195,26 +209,42 @@ public class Union {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        
+        
+        public static void transiciones_AFD(int i, ArrayList<Nodo> leaves, ArrayList<ArrayList> table, Nodo fondo){
 
-            
    
-            tablaTran tran = new tablaTran(raiz, table, leaves); // bug
-            System.out.println("=============================TABLA TRANSICIONES=============================");
-             graphviz = tran.graphviz(table);
+          
+            tablaTran tran = new tablaTran(fondo, table, leaves);
+             String graphviz = tran.graphviz(table);
             EscribirArchivo(graphviz,"./reportes/Transiciones_202002591/Tabla"+(i+1)+".dot");
-            ProcessBuilder proceso2;
-            proceso2 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Transiciones_202002591/Tabla"+(i+1)+".png","./reportes/Transiciones_202002591/Tabla"+(i+1)+".dot");
-            proceso2.redirectErrorStream(true);
+            ProcessBuilder carpeta;
+            carpeta = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Transiciones_202002591/Tabla"+(i+1)+".png","./reportes/Transiciones_202002591/Tabla"+(i+1)+".dot");
+            carpeta.redirectErrorStream(true);
             try {
-                proceso2.start();
+                carpeta.start();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-
-        }
-    }
+            
+            String automataGraphviz = tran.T_AFD();
+            EscribirArchivo(automataGraphviz,"./reportes/afd_202002591/Automata"+(i+1)+".dot");
+            ProcessBuilder proceso3;
+            proceso3 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/afd_202002591/Automata"+(i+1)+".png","./reportes/afd_202002591/Automata"+(i+1)+".dot");
+            proceso3.redirectErrorStream(true);
+            try {
+                proceso3.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            
+            }
+        
+     
+         
+       
+        
     
     public static void EscribirArchivo(String contenido, String ruta){
         try {

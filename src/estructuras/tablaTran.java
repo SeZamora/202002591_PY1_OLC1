@@ -4,7 +4,12 @@
  */
 package estructuras;
 
+import T_Sigueinte.Siguiente;
+import T_Transicion.Transicion;
+import estructuras.Nodo;
+import estructuras.hojita;
 import java.util.ArrayList;
+import estructuras.*;
 
 /**
  *
@@ -111,7 +116,7 @@ public class tablaTran {
         }
     }
 
-    public String Automata(){
+    public String T_AFD(){
         String texto = "digraph G {\n rankdir=LR;\n label=\"AFD\"; \nnodex [style=invisible label = \"\"];\n";
 
         for(ArrayList state : states){

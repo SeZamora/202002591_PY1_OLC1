@@ -171,7 +171,7 @@ public class Interfaz extends javax.swing.JFrame {
             e.printStackTrace();
         }
         Union.analizar();
-        
+        Union.arboles();
         
    
      

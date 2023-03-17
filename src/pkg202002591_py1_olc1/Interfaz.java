@@ -7,6 +7,7 @@ import analizador.Lexico;
 import analizador.compilador;
 import analizador.parser;
 import estructuras.*;
+import Errores.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -167,10 +168,31 @@ public class Interfaz extends javax.swing.JFrame {
             parser parser = new parser(scanner);
             parser.parse();
             System.out.println("Analisis finalizado");
+            
+             // generar reporte de errores lexicos
+            if (scanner.erroresLexicos.isEmpty()) {
+                System.out.println("No se encontraron errores lexicos");
+            } else {
+                scanner.erroresLexicos.forEach((error) -> {
+                    html_error.error_lexico(error.getTipo(), error.getDescripcion(), error.getLinea(), error.getColumna());
+                });
+            }
+            
+            // generar reporte de errores sintacticos
+            if (parser.erroresSintacticos.isEmpty()) {
+                System.out.println("No se encontraron errores sintacticos");
+                html_error.cerrar();
+            } else {
+                parser.erroresSintacticos.forEach((error) -> {        
+                        html_error.error_sintactico(error.getTipo(), error.getDescripcion(), error.getLinea(), error.getColumna());
+                        html_error.cerrar();
+                });
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         Union.analizar();
+
         Union.arboles();
         
    

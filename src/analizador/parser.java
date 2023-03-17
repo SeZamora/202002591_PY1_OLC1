@@ -9,6 +9,7 @@ import java_cup.runtime.*;
 import estructuras.*;
 import analizador.*;
 import java.util.ArrayList;
+import Errores.Excepcion;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -196,27 +197,17 @@ public class parser extends java_cup.runtime.lr_parser {
 
 
 
-// error sintactico
-    public void syntax_error(Symbol s)
-    {
-        String lexema = s.value.toString();
-        int fila = s.right;
-        int columna = s.left;
+ ///  declarar un arraylist para los errores sintacticos 
+    public  ArrayList<Excepcion> erroresSintacticos = new ArrayList<Excepcion>();
 
-        System.out.println("recuperado");
-
-
+    public void syntax_error(Symbol s){
+        //System.out.println("Error R de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+        erroresSintacticos.add(new Excepcion("Sintáctico", "Error Recuperable de sintaxis: "+ s.value , Integer.toString(s.left+1), Integer.toString(s.right+1) ));
     }
 
-    //momento en que ya no es posible una recuperacion de errores
-    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
-    {
-        String lexema = s.value.toString();
-        int fila = s.right;
-        int columna = s.left;
-
-        System.out.println("gege ");
-
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+        //System.out.println("Error NR de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+        erroresSintacticos.add(new Excepcion("Sintáctico", "Error No Recuperable de sintaxis: "+ s.value , Integer.toString(s.left+1), Integer.toString(s.right+1) ));
     }
 
 

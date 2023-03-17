@@ -3,8 +3,16 @@ package analizador;
 import java_cup.runtime.Symbol; 
 import java.util.ArrayList;
 import estructuras.*;
+import Errores.Excepcion;
 
 %%
+
+%{
+    //Código de usuario
+    // crear un arraylist para los errores lexicos
+    public  ArrayList<Excepcion> erroresLexicos = new ArrayList<Excepcion>() ;
+
+%}
 
 %column
 %full
@@ -57,7 +65,7 @@ flecha= "-" {blancos}* ">"
 [ \t\r\n\f] { /* ignorar */ }
 
 . {
-    System.out.println("Este es un error lexico: " +yytext() + " en linea " + yyline + " y columna " + yycolumn);
+     erroresLexicos.add(new Excepcion("Léxico","El caracter : '"+yytext()+"'no pertenece al lenguaje: ", Integer.toString(yyline+1), Integer.toString(yycolumn+1)));
   
 }
 

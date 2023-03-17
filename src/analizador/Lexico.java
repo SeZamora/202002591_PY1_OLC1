@@ -5,6 +5,7 @@ package analizador;
 import java_cup.runtime.Symbol; 
 import java.util.ArrayList;
 import estructuras.*;
+import Errores.Excepcion;
 
 
 /**
@@ -257,6 +258,12 @@ public class Lexico implements java_cup.runtime.Scanner {
    * otherwise, it will have a value of 0.
    */
   private int zzFinalHighSurrogate = 0;
+
+  /* user code: */
+    //Código de usuario
+    // crear un arraylist para los errores lexicos
+    public  ArrayList<Excepcion> erroresLexicos = new ArrayList<Excepcion>() ;
+
 
 
   /**
@@ -627,7 +634,7 @@ public class Lexico implements java_cup.runtime.Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { System.out.println("Este es un error lexico: " +yytext() + " en linea " + yyline + " y columna " + yycolumn);
+            { erroresLexicos.add(new Excepcion("Léxico","El caracter : '"+yytext()+"'no pertenece al lenguaje: ", Integer.toString(yyline+1), Integer.toString(yycolumn+1)));
             } 
             // fall through
           case 25: break;

@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/analizador/Expresion.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/pkg202002591_py1_olc1/Interfaz.java</file>
+            <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/Errores/Excepcion.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/estructuras/Nodo.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/T_Transicion/Transicion.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/T_Sigueinte/Siguiente.java</file>
@@ -14,6 +15,8 @@
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/estructuras/Union.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/analizador/Conjunto.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/analizador/compilador.java</file>
+            <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/analizador/parser.java</file>
+            <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/Errores/html_error.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/pkg202002591_py1_olc1/Main.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/estructuras/numeroHoja.java</file>
             <file>file:/C:/Users/SEBASTIAN%20ZAMORA/Documents/primer%20semestre%202023/202002591_PY1_OLC1/src/estructuras/Arbol.java</file>

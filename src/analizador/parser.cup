@@ -27,9 +27,9 @@ parser code
     
 :}
 
-terminal String llavea, llavec, dospuntos, puntocoma, flecha, punto, asterisco, coma, or, mas, guionondulado, interrogacion, conj, porcentajes, comentariolineas, cadena, comentario, numero, letra, id, acci, caracterEspecial ;
+terminal String llavea, llavec, dospuntos, puntocoma, flecha, punto, asterisco, coma, or, mas, guionondulado, interrogacion, conj, porcentajes, cadena, numero, letra, id, acci, caracterEspecial ;
 
-non terminal INICIO,INTRO,CONJUNTOS,COMBINACIONES,COMASLETRA,COMASNUMERO,EXPRESIONES,COMBEXPRE,PORCENTAJES,ENTRADAS ;
+non terminal INICIO,INTRO,CONJUNTOS,COMBINACIONES,COMASLETRA,EXPRESIONES,COMBEXPRE,PORCENTAJES,ENTRADAS ;
 
 start with INICIO;
 
@@ -111,7 +111,7 @@ PORCENTAJES::= porcentajes
 
 ENTRADAS::= id:idd dospuntos cadena:cadenaa puntocoma                  {: System.out.println("");System.out.println(idd+cadenaa);
                                                                        Expresion expresion2 = new Expresion(idd,cadenaa);
-                                                                                       Union.entradas.add(expresion2);
+                                                                               
                                                                       :}
 ;
 

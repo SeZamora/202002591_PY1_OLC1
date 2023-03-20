@@ -117,6 +117,19 @@ public class tablaTran {
     }
 
     public String T_AFD(){
+        
+        System.out.println("----------------");
+        for(ArrayList state : states){
+            System.out.println("--------1-----------");
+            System.out.println(state.get(0));
+       
+            System.out.println("-------------3----------");
+            System.out.println(state.get(2));
+        }
+        System.out.println("----------------");
+        
+        //---------------------------------------------------
+        
         String texto = "digraph G {\n rankdir=LR;\n label=\"AFD\"; \nnodex [style=invisible label = \"\"];\n";
 
         for(ArrayList state : states){
@@ -128,7 +141,9 @@ public class tablaTran {
             for(Object tr : (ArrayList)state.get(2)){
                 Transicion t = (Transicion) tr;
                 texto += t.graph();
+                System.out.println(t.graph());
             }
+            
 
             if (state.get(3).equals(true)){
                 texto += "node"+state.get(0) + " [shape=doublecircle label=" +state.get(0) + "];\n";
@@ -138,16 +153,17 @@ public class tablaTran {
 
         return  texto +="}";
     }
-
+    
+  
 
     public String graphviz(ArrayList<ArrayList> table){
         StringBuilder dot = new StringBuilder();
         StringBuilder dot2 = new StringBuilder();
 
         dot.append("digraph G {\n");
-        dot.append("bgcolor=\"slategrey\" label=\"Tabla de Transicion\" layout=dot \n" +
+        dot.append("bgcolor=\"#df806c\" label=\"Tabla de Transicion\" layout=dot \n" +
                 "labelloc = \"t\" edge [weigth=1000  color=darkgreen  arrowtail=\"open\" arrowhead=\"open\"]\n");
-        dot.append("node[shape=box, style=\"filled\", color=lightgrey];\n");
+        dot.append("node[shape=box, style=\"filled\", color=#7fc9d1\"];\n");
         dot.append("a0 [label=<\n" +
                 "<TABLE border=\"10\" cellspacing=\"10\" cellpadding=\"10\" style=\"rounded\">");
         dot.append("<TR><TD> </TD>\n" );

@@ -50,9 +50,9 @@ public class Siguiente {
         StringBuilder dot = new StringBuilder();
 
         dot.append("digraph G {\n");
-        dot.append("bgcolor=\"slategrey\" label=\"Tabla de Siguientes\"layout=dot \n" +
+        dot.append("bgcolor=\"#df806c\" label=\"Tabla de Siguientes\"layout=dot \n" +
                 "labelloc = \"t\"edge [weigth=1000  color=darkgreen  arrowtail=\"open\" arrowhead=\"open\"]\n");
-        dot.append("node[shape=box, style=\"filled\", color=lightgrey];\n");
+        dot.append("node[shape=box, style=\"filled\", color=#7fc9d1\"];\n");
         dot.append("a0 [label=<\n" +
                 "<TABLE>");
         int size = 0;

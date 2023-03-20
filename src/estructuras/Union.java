@@ -24,8 +24,7 @@ import java.io.FileWriter;
 public class Union {
     public static ArrayList<Conjunto> conjuntos = new ArrayList<Conjunto>();
     public static ArrayList<Expresion> expresiones = new ArrayList<Expresion>();
-    public static ArrayList<Expresion> entradas = new ArrayList<Expresion>();
-     public static ArrayList<Expresion> errores = new ArrayList<Expresion>();
+
     
     public static void analizar(){
         for (int i = 0; i < conjuntos.size(); i++) {
@@ -49,52 +48,52 @@ public class Union {
                     
                 if (estado == 0){
                     if (cadaCaracter.get(j)==46){
-                        System.out.println("46 -> "+j+"->"+cadaCaracter.get(j));
+                        //System.out.println("46 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray(".");
                         j++;
                     }else if(cadaCaracter.get(j)==42){
-                        System.out.println("42 -> "+j+"->"+cadaCaracter.get(j));
+                        //System.out.println("42 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("*");
                         j++;
                     } else if(cadaCaracter.get(j)==124){
-                        System.out.println("124 -> "+j+"->"+cadaCaracter.get(j));
+                        //System.out.println("124 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("|");
                         j++;
                     }else if(cadaCaracter.get(j)==63){
-                        System.out.println("63 -> "+j+"->"+cadaCaracter.get(j));
+                        //System.out.println("63 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("?");
                         j++;
                     }else if(cadaCaracter.get(j)==43){
-                        System.out.println("43 -> "+j+"->"+cadaCaracter.get(j));
+                        //System.out.println("43 -> "+j+"->"+cadaCaracter.get(j));
                         expresiones.get(i).insertarTerminalAlArray("+");
                         j++;
                     }else if(cadaCaracter.get(j)==172){
-                        System.out.println("172 -> "+j+"->"+cadaCaracter.get(j));
-                        System.out.println("se completo el casteo");
+                        //System.out.println("172 -> "+j+"->"+cadaCaracter.get(j));
+                        //System.out.println("se completo el casteo");
                         break;
                     }
                     else if (cadaCaracter.get(j)==123){
-                         System.out.println("123 -> "+j+"->"+cadaCaracter.get(j));
+                         ////System.out.println("123 -> "+j+"->"+cadaCaracter.get(j));
                          //System.out.println(" "+buffer);
                         buffer += cadaCaracter.get(j);
                         j++;
                         estado = 1;
                     }
                     else if (cadaCaracter.get(j)==34){
-                         System.out.println("34 estado 0 -> "+j+"->"+cadaCaracter.get(j));
+                         ////System.out.println("34 estado 0 -> "+j+"->"+cadaCaracter.get(j));
                          //System.out.println(buffer);
                         buffer += cadaCaracter.get(j);
                         j++;
                         estado = 2;
                     }
                     else if (cadaCaracter.get(j)==92){
-                        System.out.println("34 estado 0 -> "+j+"->"+cadaCaracter.get(j));
+                        ////System.out.println("34 estado 0 -> "+j+"->"+cadaCaracter.get(j));
                         j++;
                         estado = 3;
                     }
                 }else if (estado==1){
                     if(cadaCaracter.get(j)==125){
-                          System.out.println("125 -> "+j+"->"+cadaCaracter.get(j));
+                          ////System.out.println("125 -> "+j+"->"+cadaCaracter.get(j));
                          //System.out.println(" "+buffer);
                         buffer += "}";
                         expresiones.get(i).insertarTerminalAlArray(buffer);
@@ -102,14 +101,14 @@ public class Union {
                         j++;
                         estado = 0;
                     }else{
-                         System.out.println("primer if else -> "+j+"->"+cadaCaracter.get(j));
+                         ////System.out.println("primer if else -> "+j+"->"+cadaCaracter.get(j));
                          //System.out.println(" "+buffer);
                         buffer+= cadaCaracter.get(j);
                         j++;
                     }
                 }else if (estado==2){
                     if(cadaCaracter.get(j)==34){
-                          System.out.println("34 -> "+j+"->"+cadaCaracter.get(j));
+                          //System.out.println("34 -> "+j+"->"+cadaCaracter.get(j));
                          //System.out.println(" "+buffer);
                         buffer += "\"";
                         expresiones.get(i).insertarTerminalAlArray(buffer);
@@ -117,34 +116,34 @@ public class Union {
                         j++;
                         estado = 0;
                     }else{
-                          System.out.println("estado 2 else -> "+j+"->"+cadaCaracter.get(j));
+                         // //System.out.println("estado 2 else -> "+j+"->"+cadaCaracter.get(j));
                          //System.out.println(" "+buffer);
                         buffer+= cadaCaracter.get(j);
                         j++;
                     }
 
                 }else if (estado==3){
-                    System.out.println("entre 3 ->"+cadaCaracter.get(j));
+                    //System.out.println("entre 3 ->"+cadaCaracter.get(j));
                         if(cadaCaracter.get(j)==110){
-                            System.out.println("entre n");
+                            //System.out.println("entre n");
                          buffer = "\\n";
-                            System.out.println("el buffer: "+buffer);
+                            //System.out.println("el buffer: "+buffer);
                          expresiones.get(i).insertarTerminalAlArray(buffer);
                          j++;
                           buffer = "";
                          estado = 0;
                      } else if (cadaCaracter.get(j)==39){
-                            System.out.println("entre simple");
+                            //System.out.println("entre simple");
                           buffer = "\\\'";
-                            System.out.println("el buffer: "+buffer);
+                            //System.out.println("el buffer: "+buffer);
                          expresiones.get(i).insertarTerminalAlArray(buffer);
                          j++;
                          estado = 0;
                          buffer = "";
                      } else if (cadaCaracter.get(j)==34){
-                            System.out.println("entre doble");
+                           // System.out.println("entre doble");
                          buffer = "\\\"";
-                            System.out.println("soy buffer"+buffer);
+                            //System.out.println("soy buffer"+buffer);
                          expresiones.get(i).insertarTerminalAlArray(buffer);
                          j++;
                          buffer = "";
@@ -153,7 +152,7 @@ public class Union {
                 }
             }
             expresiones.get(i).insertarTerminalAlArray("#");
-            System.out.println(expresiones.get(i).getNombre() + " " + expresiones.get(i).getExpresion());
+            //System.out.println(expresiones.get(i).getNombre() + " " + expresiones.get(i).getExpresion());
         }
         }
         
@@ -179,9 +178,9 @@ public class Union {
             fondo.follow();
             
             String graphvizArbol = Arbol.imprimir+"}";
-            EscribirArchivo(graphvizArbol,"./reportes/Arbol_202002591/Arbol"+(i+1)+".dot");
+            EscribirArchivo(graphvizArbol,"./dot/Arbol_202002591/Arbol"+(i+1)+".dot");
             ProcessBuilder proceso0;
-            proceso0 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Arbol_202002591/Arbol"+(i+1)+".png","./reportes/Arbol_202002591/Arbol"+(i+1)+".dot");
+            proceso0 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Arbol_202002591/Arbol"+(i+1)+".png","./dot/Arbol_202002591/Arbol"+(i+1)+".dot");
             proceso0.redirectErrorStream(true);
             try {
                 proceso0.start();
@@ -200,9 +199,9 @@ public class Union {
 
             Siguiente ft = new Siguiente();
             String graphviz = ft.graphviz(table);
-            EscribirArchivo(graphviz,"./reportes/Siguientes_202002591/Tabla"+(i+1)+".dot");
+            EscribirArchivo(graphviz,"./dot/Siguientes_202002591/Tabla"+(i+1)+".dot");
             ProcessBuilder proceso;
-            proceso = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Siguientes_202002591/Tabla"+(i+1)+".png","./reportes/Siguientes_202002591/Tabla"+(i+1)+".dot");
+            proceso = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Siguientes_202002591/Tabla"+(i+1)+".png","./dot/Siguientes_202002591/Tabla"+(i+1)+".dot");
             proceso.redirectErrorStream(true);
             try {
                 proceso.start();
@@ -218,9 +217,9 @@ public class Union {
           
             tablaTran tran = new tablaTran(fondo, table, leaves);
              String graphviz = tran.graphviz(table);
-            EscribirArchivo(graphviz,"./reportes/Transiciones_202002591/Tabla"+(i+1)+".dot");
+            EscribirArchivo(graphviz,"./dot/Transiciones_202002591/Tabla"+(i+1)+".dot");
             ProcessBuilder carpeta;
-            carpeta = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Transiciones_202002591/Tabla"+(i+1)+".png","./reportes/Transiciones_202002591/Tabla"+(i+1)+".dot");
+            carpeta = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/Transiciones_202002591/Tabla"+(i+1)+".png","./dot/Transiciones_202002591/Tabla"+(i+1)+".dot");
             carpeta.redirectErrorStream(true);
             try {
                 carpeta.start();
@@ -229,9 +228,9 @@ public class Union {
             }
             
             String automataGraphviz = tran.T_AFD();
-            EscribirArchivo(automataGraphviz,"./reportes/afd_202002591/Automata"+(i+1)+".dot");
+            EscribirArchivo(automataGraphviz,"./dot/afd_202002591/Automata"+(i+1)+".dot");
             ProcessBuilder proceso3;
-            proceso3 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/afd_202002591/Automata"+(i+1)+".png","./reportes/afd_202002591/Automata"+(i+1)+".dot");
+            proceso3 = new ProcessBuilder("dot", "-Tpng", "-o","./reportes/afd_202002591/Automata"+(i+1)+".png","./dot/afd_202002591/Automata"+(i+1)+".dot");
             proceso3.redirectErrorStream(true);
             try {
                 proceso3.start();

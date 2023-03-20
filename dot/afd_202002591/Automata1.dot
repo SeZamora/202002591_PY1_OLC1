@@ -1,0 +1,31 @@
+digraph G {
+ rankdir=LR;
+ label="AFD"; 
+nodex [style=invisible label = ""];
+nodeS0 [shape=circle label=S0];
+nodeS1 [shape=circle label=S1];
+nodeS2 [shape=circle label=S2];
+nodeS3 [shape=circle label=S3];
+nodeS4 [shape=circle label=S4];
+nodeS5 [shape=circle label=S5];
+nodeS6 [shape=circle label=S6];
+Inicio->nodeS0;
+ nodeS0 -> nodeS1 [label="C"];
+
+ nodeS1 -> nodeS2 [label="O"];
+
+ nodeS2 -> nodeS3 [label="M"];
+
+ nodeS3 -> nodeS4 [label="P"];
+
+ nodeS4 -> nodeS5 [label="I"];
+
+ nodeS5 -> nodeS6 [label="1"];
+
+ nodeS6 -> nodeS6 [label="{letra}"];
+
+ nodeS6 -> nodeS6 [label="{digito}"];
+
+ nodeS6 -> nodeS6 [label=" "];
+nodeS6 [shape=doublecircle label=S6];
+}

@@ -6,10 +6,6 @@ package T_Sigueinte;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author SEBASTIAN ZAMORA
- */
 public class Siguiente {
     public void append(int numNode, String lexeme, ArrayList flwList, ArrayList<ArrayList> table){
         for (ArrayList item : table){
@@ -44,15 +40,20 @@ public class Siguiente {
         return result;
     }
 
-  
+    public void printTable(ArrayList<ArrayList> table){
+        for(ArrayList item : table){
+
+            System.out.println(item.get(0) + " - " + item.get(1) + " - " + item.get(2) );
+        }
+    }
 
     public String graphviz(ArrayList<ArrayList> table){
         StringBuilder dot = new StringBuilder();
 
         dot.append("digraph G {\n");
-        dot.append("bgcolor=\"#df806c\" label=\"Tabla de Siguientes\"layout=dot \n" +
+        dot.append("bgcolor=\"slategrey\" label=\"Tabla de Siguientes\"layout=dot \n" +
                 "labelloc = \"t\"edge [weigth=1000  color=darkgreen  arrowtail=\"open\" arrowhead=\"open\"]\n");
-        dot.append("node[shape=box, style=\"filled\", color=#7fc9d1\"];\n");
+        dot.append("node[shape=box, style=\"filled\", color=lightgrey];\n");
         dot.append("a0 [label=<\n" +
                 "<TABLE>");
         int size = 0;

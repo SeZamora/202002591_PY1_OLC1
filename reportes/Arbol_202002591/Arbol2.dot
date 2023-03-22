@@ -1,0 +1,83 @@
+digraph G {
+ layout=dot 
+labelloc = "t"edge [weigth=1000  color=darkgreen  arrowtail="open" arrowhead="open"]
+Nodo333061765 -> Nodo182352615;
+Nodo333061765 -> Nodo1273323197;
+Nodo739678718 -> Nodo333061765;
+Nodo739678718 -> Nodo1870365903;
+Nodo369869445 -> Nodo739678718;
+Nodo369869445 -> Nodo2012898895;
+Nodo1874577447 -> Nodo369869445;
+Nodo1874577447 -> Nodo1549100259;
+Nodo335710726 -> Nodo1874577447;
+Nodo820924119 -> Nodo335710726;
+Nodo820924119 -> Nodo27611677;
+Nodo1990220982 -> Nodo1987230430;
+Nodo1990220982 -> Nodo820924119;
+Nodo875088433 -> Nodo1990220982;
+Nodo875088433 -> Nodo523649811;
+Nodo1987230430[label="\' 
+ [1] 
+ [1] 
+ N "];
+Nodo182352615[label="\n 
+ [2] 
+ [2] 
+ N "];
+Nodo1273323197[label="{minus} 
+ [3] 
+ [3] 
+ N "];
+Nodo333061765[label="| 
+ [2, 3] 
+ [2, 3] 
+ N "];
+Nodo1870365903[label="{mayus} 
+ [4] 
+ [4] 
+ N "];
+Nodo739678718[label="| 
+ [2, 3, 4] 
+ [2, 3, 4] 
+ N "];
+Nodo2012898895[label="{digito} 
+ [5] 
+ [5] 
+ N "];
+Nodo369869445[label="| 
+ [2, 3, 4, 5] 
+ [2, 3, 4, 5] 
+ N "];
+Nodo1549100259[label="  
+ [6] 
+ [6] 
+ N "];
+Nodo1874577447[label="| 
+ [2, 3, 4, 5, 6] 
+ [2, 3, 4, 5, 6] 
+ N "];
+Nodo335710726[label="+ 
+ [2, 3, 4, 5, 6] 
+ [2, 3, 4, 5, 6] 
+ N "];
+Nodo27611677[label="\' 
+ [7] 
+ [7] 
+ N "];
+Nodo820924119[label=". 
+ [2, 3, 4, 5, 6] 
+ [7] 
+ N "];
+Nodo1990220982[label=". 
+ [1] 
+ [7] 
+ N "];
+Nodo523649811[label="# 
+ [8] 
+ [8] 
+ N "];
+Nodo875088433[label=". 
+ [1] 
+ [8] 
+ N "];
+}

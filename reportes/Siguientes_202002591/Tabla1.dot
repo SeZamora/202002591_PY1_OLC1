@@ -3,52 +3,72 @@ bgcolor="slategrey" label="Tabla de Siguientes"layout=dot
 labelloc = "t"edge [weigth=1000  color=darkgreen  arrowtail="open" arrowhead="open"]
 node[shape=box, style="filled", color=lightgrey];
 a0 [label=<
-<TABLE><TR><TD>7</TD>
+<TABLE><TR><TD>3</TD>
   <TD>-</TD>
-  <TD>{letra}</TD>
+  <TD>{simbolos}</TD>
   <TD>-</TD>
-  <TD>[7, 8, 9, 10]</TD>
-  </TR><TR><TD>8</TD>
-  <TD>-</TD>
-  <TD>{digito}</TD>
-  <TD>-</TD>
-  <TD>[7, 8, 9, 10]</TD>
-  </TR><TR><TD>9</TD>
-  <TD>-</TD>
-  <TD>" "</TD>
-  <TD>-</TD>
-  <TD>[7, 8, 9, 10]</TD>
-  </TR><TR><TD>6</TD>
-  <TD>-</TD>
-  <TD>"1"</TD>
-  <TD>-</TD>
-  <TD>[7, 8, 9, 10]</TD>
-  </TR><TR><TD>5</TD>
-  <TD>-</TD>
-  <TD>"I"</TD>
-  <TD>-</TD>
-  <TD>[6]</TD>
+  <TD>[3, 4, 5, 6, 7]</TD>
   </TR><TR><TD>4</TD>
   <TD>-</TD>
-  <TD>"P"</TD>
+  <TD>{minuscula}</TD>
   <TD>-</TD>
-  <TD>[5]</TD>
-  </TR><TR><TD>3</TD>
+  <TD>[3, 4, 5, 6, 7]</TD>
+  </TR><TR><TD>5</TD>
   <TD>-</TD>
-  <TD>"M"</TD>
+  <TD>{mayuscula}</TD>
   <TD>-</TD>
-  <TD>[4]</TD>
-  </TR><TR><TD>2</TD>
+  <TD>[3, 4, 5, 6, 7]</TD>
+  </TR><TR><TD>6</TD>
   <TD>-</TD>
-  <TD>"O"</TD>
+  <TD>{numero}</TD>
   <TD>-</TD>
-  <TD>[3]</TD>
+  <TD>[3, 4, 5, 6, 7]</TD>
+  </TR><TR><TD>8</TD>
+  <TD>-</TD>
+  <TD>{minuscula}</TD>
+  <TD>-</TD>
+  <TD>[8, 9, 10]</TD>
+  </TR><TR><TD>9</TD>
+  <TD>-</TD>
+  <TD>{mayuscula}</TD>
+  <TD>-</TD>
+  <TD>[8, 9, 10]</TD>
+  </TR><TR><TD>12</TD>
+  <TD>-</TD>
+  <TD>"o"</TD>
+  <TD>-</TD>
+  <TD>[13]</TD>
+  </TR><TR><TD>11</TD>
+  <TD>-</TD>
+  <TD>"c"</TD>
+  <TD>-</TD>
+  <TD>[12]</TD>
+  </TR><TR><TD>10</TD>
+  <TD>-</TD>
+  <TD>"."</TD>
+  <TD>-</TD>
+  <TD>[11]</TD>
+  </TR><TR><TD>7</TD>
+  <TD>-</TD>
+  <TD>"@"</TD>
+  <TD>-</TD>
+  <TD>[8, 9]</TD>
   </TR><TR><TD>1</TD>
   <TD>-</TD>
-  <TD>"C"</TD>
+  <TD>{minuscula}</TD>
   <TD>-</TD>
-  <TD>[2]</TD>
-  </TR><TR><TD>10</TD>
+  <TD>[3, 4, 5, 6]</TD>
+  </TR><TR><TD>2</TD>
+  <TD>-</TD>
+  <TD>{mayuscula}</TD>
+  <TD>-</TD>
+  <TD>[3, 4, 5, 6]</TD>
+  </TR><TR><TD>13</TD>
+  <TD>-</TD>
+  <TD>"m"</TD>
+  <TD>-</TD>
+  <TD>[14]</TD>
+  </TR><TR><TD>14</TD>
   <TD>-</TD>
   <TD>#</TD>
   </TR></TABLE>>];}

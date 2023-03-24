@@ -9,23 +9,45 @@ nodeS3 [shape=circle label=S3];
 nodeS4 [shape=circle label=S4];
 nodeS5 [shape=circle label=S5];
 nodeS6 [shape=circle label=S6];
+nodeS7 [shape=circle label=S7];
+nodeS8 [shape=circle label=S8];
 Inicio->nodeS0;
- nodeS0 -> nodeS1 [label="C"];
+ nodeS0 -> nodeS1 [label="{minuscula}"];
 
- nodeS1 -> nodeS2 [label="O"];
+ nodeS0 -> nodeS1 [label="{mayuscula}"];
 
- nodeS2 -> nodeS3 [label="M"];
+ nodeS1 -> nodeS2 [label="{simbolos}"];
 
- nodeS3 -> nodeS4 [label="P"];
+ nodeS1 -> nodeS2 [label="{minuscula}"];
 
- nodeS4 -> nodeS5 [label="I"];
+ nodeS1 -> nodeS2 [label="{mayuscula}"];
 
- nodeS5 -> nodeS6 [label="1"];
+ nodeS1 -> nodeS2 [label="{numero}"];
 
- nodeS6 -> nodeS6 [label="{letra}"];
+ nodeS2 -> nodeS2 [label="{simbolos}"];
 
- nodeS6 -> nodeS6 [label="{digito}"];
+ nodeS2 -> nodeS2 [label="{minuscula}"];
 
- nodeS6 -> nodeS6 [label=" "];
-nodeS6 [shape=doublecircle label=S6];
+ nodeS2 -> nodeS2 [label="{mayuscula}"];
+
+ nodeS2 -> nodeS2 [label="{numero}"];
+
+ nodeS2 -> nodeS3 [label="@"];
+
+ nodeS3 -> nodeS4 [label="{minuscula}"];
+
+ nodeS3 -> nodeS4 [label="{mayuscula}"];
+
+ nodeS4 -> nodeS4 [label="{minuscula}"];
+
+ nodeS4 -> nodeS4 [label="{mayuscula}"];
+
+ nodeS4 -> nodeS5 [label="."];
+
+ nodeS5 -> nodeS6 [label="c"];
+
+ nodeS6 -> nodeS7 [label="o"];
+
+ nodeS7 -> nodeS8 [label="m"];
+nodeS8 [shape=doublecircle label=S8];
 }

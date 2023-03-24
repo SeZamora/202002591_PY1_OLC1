@@ -4,13 +4,17 @@ labelloc = "t" edge [weigth=1000  color=darkgreen  arrowtail="open" arrowhead="o
 node[shape=box, style="filled", color=lightgrey];
 a0 [label=<
 <TABLE border="10" cellspacing="10" cellpadding="10" style="rounded"><TR><TD> </TD>
-<TD>\n</TD>
-<TD>{minus}</TD>
-<TD>{mayus}</TD>
-<TD>{digito}</TD>
-<TD>" "</TD>
-<TD>\'</TD>
-<TD>\'</TD>
+<TD>{minuscula}</TD>
+<TD>{minuscula}</TD>
+<TD>"."</TD>
+<TD>"/"</TD>
+<TD>"/"</TD>
+<TD>":"</TD>
+<TD>"s"</TD>
+<TD>"p"</TD>
+<TD>"t"</TD>
+<TD>"t"</TD>
+<TD>"h"</TD>
   </TR>
 <TR><TD>S0[1]</TD>
   <TD> </TD>
@@ -18,28 +22,148 @@ a0 [label=<
   <TD> </TD>
   <TD> </TD>
   <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
   <TD>S1</TD>
+</TR>
+<TR><TD>S1[2]</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD>S2</TD>
+  <TD> </TD>
   <TD> </TD>
 </TR>
-<TR><TD>S1[2, 3, 4, 5, 6]</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
+<TR><TD>S2[3]</TD>
   <TD> </TD>
   <TD> </TD>
-</TR>
-<TR><TD>S2[2, 3, 4, 5, 6, 7]</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
-  <TD>S2</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
   <TD>S3</TD>
   <TD> </TD>
+  <TD> </TD>
 </TR>
-<TR><TD>S3[8]</TD>
+<TR><TD>S3[4]</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD>S4</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S4[5, 6]</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD>S6</TD>
+  <TD>S5</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S5[6]</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD>S6</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S6[7]</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD>S7</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S7[8]</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD>S8</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S8[9]</TD>
+  <TD>S9</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S9[9, 10]</TD>
+  <TD>S9</TD>
+  <TD> </TD>
+  <TD>S10</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S10[11]</TD>
+  <TD>S11</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
+</TR>
+<TR><TD>S11[11, 12]</TD>
+  <TD>S11</TD>
+  <TD> </TD>
+  <TD> </TD>
+  <TD> </TD>
   <TD> </TD>
   <TD> </TD>
   <TD> </TD>

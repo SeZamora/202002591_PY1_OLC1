@@ -6,29 +6,41 @@ nodeS0 [shape=circle label=S0];
 nodeS1 [shape=circle label=S1];
 nodeS2 [shape=circle label=S2];
 nodeS3 [shape=circle label=S3];
+nodeS4 [shape=circle label=S4];
+nodeS5 [shape=circle label=S5];
+nodeS6 [shape=circle label=S6];
+nodeS7 [shape=circle label=S7];
+nodeS8 [shape=circle label=S8];
+nodeS9 [shape=circle label=S9];
+nodeS10 [shape=circle label=S10];
+nodeS11 [shape=circle label=S11];
 Inicio->nodeS0;
- nodeS0 -> nodeS1 [label="\'"];
+ nodeS0 -> nodeS1 [label="h"];
 
- nodeS1 -> nodeS2 [label="\n"];
+ nodeS1 -> nodeS2 [label="t"];
 
- nodeS1 -> nodeS2 [label="{minus}"];
+ nodeS2 -> nodeS3 [label="t"];
 
- nodeS1 -> nodeS2 [label="{mayus}"];
+ nodeS3 -> nodeS4 [label="p"];
 
- nodeS1 -> nodeS2 [label="{digito}"];
+ nodeS4 -> nodeS5 [label="s"];
 
- nodeS1 -> nodeS2 [label=" "];
+ nodeS4 -> nodeS6 [label=":"];
 
- nodeS2 -> nodeS2 [label="\n"];
+ nodeS5 -> nodeS6 [label=":"];
 
- nodeS2 -> nodeS2 [label="{minus}"];
+ nodeS6 -> nodeS7 [label="/"];
 
- nodeS2 -> nodeS2 [label="{mayus}"];
+ nodeS7 -> nodeS8 [label="/"];
 
- nodeS2 -> nodeS2 [label="{digito}"];
+ nodeS8 -> nodeS9 [label="{minuscula}"];
 
- nodeS2 -> nodeS2 [label=" "];
+ nodeS9 -> nodeS9 [label="{minuscula}"];
 
- nodeS2 -> nodeS3 [label="\'"];
-nodeS3 [shape=doublecircle label=S3];
+ nodeS9 -> nodeS10 [label="."];
+
+ nodeS10 -> nodeS11 [label="{minuscula}"];
+
+ nodeS11 -> nodeS11 [label="{minuscula}"];
+nodeS11 [shape=doublecircle label=S11];
 }
